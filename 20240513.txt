@@ -1,0 +1,54 @@
+git jdk 8 / 11 / 17 / 21 LTS
+jdk - java development kit 21
+
+JAVA_HOME 시스템 변수 (여기에 자바를 설치했어요)
+path 설정 (여기에 자바 실행 파일이 있어요)
+-----------------------------
+git
+
+  원격레파지토리 : github.com
+  1) create repository
+  2) 로컬레파지토리에서 원격레파지토리 등록하기
+
+  로컬레파지토리 : git
+  1) 로컬레파지토리로 만들기
+  2) staging  - 누구를 저장할 것인지 지정
+  3) commit   - 저장
+
+  작업 순서
+  git config --global user.name 유저이름
+  git config --global user.email 유저이메일
+  git init
+  git add a.txt
+  git commit -m "commit message"
+  git remote add origin https://github.com/gt-min/javastudy.git
+  git push origin main
+-----------------------------
+.gitignore 파일
+  git 추적에서 제외할 파일/폴더 명단을 관리하는 파일
+  gitignore.io 사이트에서 제작
+  (Windows, Eclipse, Java 를 이용해서 제작)
+  작업 순서
+  git config --global user.name 유저이름
+  git config --global user.email 유저이메일
+  git init
+  git add .gitignore
+  git commit -m "create .gitignore"
+  git remote add origin https://github.com/gt-min/javastudy.git
+  git push origin main
+  git add a.txt
+  git commit -m "create a.txt"
+  git push origin main
+-----------------------------
+backend (전자정부 egov : spring framework)
+  java 1 : java fundamental (eclipse)
+  java 2 : jsp/servlet (eclipse)
+  java 3 : spring framework (sts)
+  db
+    oracle db
+    mysql db
+  html / css / js
+  git
+  project - CRUD (create, read, update, delete)
+-----------------------------
+  민경태 : 010-8725-4966

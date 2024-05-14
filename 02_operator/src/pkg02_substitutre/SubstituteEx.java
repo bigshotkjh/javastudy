@@ -18,7 +18,7 @@ public class SubstituteEx {
     b -= 3; //b의 값을 3 감소시킨다.
     System.out.println(b);
     
-    //대입 연산으로 해결하기
+    //대입 연산으로 해결하기 :  x 와 y 의 값을 교환하기.
     int x = 10;
     int y = 20;
     int temp;
@@ -27,6 +27,8 @@ public class SubstituteEx {
     y =temp;
     System.out.println(x);
     System.out.println(y);
+    
+    
     
    }
 
