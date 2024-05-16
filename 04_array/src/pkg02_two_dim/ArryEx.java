@@ -240,7 +240,7 @@ public class ArryEx {
     int[][] arr2d = new int[3][2];
     
     // advanced for 문을 이용한 2차원 배열의 순회
-    for(int[] arr1d : arr2d) {   // 2차원 배열에서는 1차원 배열을 꺼낸다.
+    for(int[] arr1d : arr2d) {   // 2차원 배열에서는 1차원 배열을 꺼낸다. // arr2d -> arr1d로!!! 하나씩 간다고 생각해!
       for(int number : arr1d) {  // 1차원 배열에서는 각 요소를 꺼낸다.
         System.out.print(number);
       }
