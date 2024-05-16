@@ -1,4 +1,4 @@
-package pkg01_branch;
+package pkg01_if;
 
 public class IfEx {
 
@@ -60,6 +60,8 @@ public class IfEx {
     } else {
         System.out.println("홀수");
     }
+    
+    
    
   }
 
