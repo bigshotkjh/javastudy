@@ -1,0 +1,21 @@
+ex1
+양수를 전달하면 "positive", 0을 전달하면 "zero", 음수를 전달하면 "negative"를 반환하는 method 구현하기
+
+ex2
+1을 전달하면 "서울", 2를 전달하면 "인천", 3을 전달하면 "경기도"를 반환하는 method 구현하기
+
+ex3
+1 ~ 12 사이의 월을 전달하면 해당 계절을 반환하는 method 구현하기(잘못된 월이 전달되면 동작하지 않기)
+
+ex4
+다음과 같이 동작하는 클래스 Calculator 구현하기
+Calculator calculator = new Calculator();
+calculator.plus(1, 2);  // 1+2=3
+calculator.plus(1, 2, 3);  // 1+2+3=6
+
+ex5
+다음과 같이 동작하는 클래스 Calculator와 Adder 구현하기
+Calculator calculator = new Calculator();
+Adder adder = new Adder();
+calculator.plus(adder, 1, 2);  // 1+2=3
+calculator.plus(adder, 1, 2, 3);  // 1+2+3=6
