@@ -1,0 +1,30 @@
+class 군대 { }
+
+interface 훈련 { } - 타입을 제공하기 위한 Marker Interface (본문 없음)
+
+class 육군 extends 군대 implements 훈련 { }
+class 해군 extends 군대 implements 훈련 { }
+class 공군 extends 군대 { }
+
+군대 군대1 = new 육군();
+군대 군대2 = new 해군();
+군대 군대3 = new 공군();
+
+class 연합훈련 {
+  훈련[] 군대;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
