@@ -39,8 +39,44 @@ public class TryCatchEx {
     
   }
   
+  public static void ex3() {
+    
+    try {
+      
+      String param1 = "5";
+      String param2 = "0";
+      
+      int iNum1 = Integer.parseInt(param1);
+      int iNum2 = Integer.parseInt(param2);
+      
+      System.out.println(iNum1 + "+" + iNum2 + "=" + (iNum1 + iNum2));
+      System.out.println(iNum1 + "-" + iNum2 + "=" + (iNum1 - iNum2));
+      System.out.println(iNum1 + "*" + iNum2 + "=" + (iNum1 * iNum2));
+      System.out.println(iNum1 + "/" + iNum2 + "=" + (iNum1 / iNum2));
+      
+    } catch(NumberFormatException e) {
+      System.out.println("정수만 계산할 수 있습니다.");
+    } catch(ArithmeticException e) {
+      System.out.println("0으로 나눌 수 없습니다.");
+    }
+    
+    /*
+     * 다중 catch 블록을 구성할 때 주의사항
+     * 자식 예외 클래스를 먼저 배치하고, 부모 예외 클래스를 나중에 배치해야 한다.
+     * 
+     * try {
+     * 
+     * } catch(부모타입 e) {
+     * 
+     * } catch(자식타입 e) {
+     * 
+     * }
+     */
+    
+  }
+  
   public static void main(String[] args) {
-    ex2();
+    ex3();
   }
 
 }

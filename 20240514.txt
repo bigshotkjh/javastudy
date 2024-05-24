@@ -1,0 +1,26 @@
+ git
+ 로컬 : javastudy
+ 원격 : github.com/계정/javastudy.git
+------
+ java
+ C:/GREEN_JAVA/tools/eclipse/eclipse.exe
+ 이클립스 - workspace : C:/GREEN_JAVA/javastudy
+
+ 변수 / 연산자 / 제어문(if, switch, for, while) / 배열 / 클래스 ...
+
+ java project
+  ㄴsrc
+    ㄴpackage (folder)
+      ㄴJava Class (source code)
+        ㄴMethod
+
+ jvm (java virtual machine)
+ 자바 실행 엔진
+ main 메소드(method)를 찾아서 실행한다.
+
+ 실행 과정
+ src - source code 작성
+   ㄴStart.java
+ jvm 이 source code 를 바이트 코드로 변경해서 실행
+ bin - class file 생성 및 실행
+   ㄴStart.class

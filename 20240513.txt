@@ -1,11 +1,10 @@
-git jdk 8 / 11 / 17 / 21 LTS
+jdk 8 / 11 / 17 / 21 LTS
 jdk - java development kit 21
 
 JAVA_HOME 시스템 변수 (여기에 자바를 설치했어요)
 path 설정 (여기에 자바 실행 파일이 있어요)
 -----------------------------
 git
-
   원격레파지토리 : github.com
   1) create repository
   2) 로컬레파지토리에서 원격레파지토리 등록하기
@@ -51,4 +50,4 @@ backend (전자정부 egov : spring framework)
   git
   project - CRUD (create, read, update, delete)
 -----------------------------
-  민경태 : 010-8725-4966
+  민경태
