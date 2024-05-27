@@ -25,8 +25,8 @@ public class CartEx {
       customer.addToCart(product3);
       customer.addToCart(product4);
       customer.addToCart(product5);
-      customer.removeFromCart(4);
-      customer.removeFromCart(product4);
+      //customer.removeFromCart(4);
+      //customer.removeFromCart(product4);
       
       // 구매
       String receipt = customer.buy();
