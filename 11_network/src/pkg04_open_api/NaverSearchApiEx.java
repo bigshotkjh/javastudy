@@ -24,41 +24,41 @@ public class NaverSearchApiEx {
   public static void main(String[] args) throws Exception {
     
     // 검색어 입력
-    Scanner sc = new Scanner(System.in);
-    System.out.print("검색어 입력 >>> ");
-    String query = sc.nextLine();  // 공백 포함한 문자열 입력이 가능하다.
-    sc.close();
+    Scanner sc = new Scanner(System.in); // 스캐너 만들기
+    System.out.print("검색어 입력 >>> ");  //검색어 입력하라고 syso
+    String query = sc.nextLine();  // 공백 포함한 문자열 입력이 가능하다. // 스캐너로 쓴거 읽어와.
+    sc.close(); //스캐너 닫아
     
-    // 요청 주소
+    // 요청 주소 //apiURL 만들기 - 쿼리부분에 인코딩 필요해 
     String apiURL = "https://openapi.naver.com/v1/search/book?query=" + URLEncoder.encode(query, "UTF-8");
     
     // 접속 생성
-    URL url = URI.create(apiURL).toURL();
-    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+    URL url = URI.create(apiURL).toURL(); // 요청주소를 URL형으로.
+    HttpURLConnection conn = (HttpURLConnection) url.openConnection(); //url 가지고  접속할 conn 만들어.
     
     // 요청 메소드
-    conn.setRequestMethod("GET");
+    conn.setRequestMethod("GET"); // get 방식으로 가져오고 늘 대문자야.
     
     // 요청 헤더
-    conn.setRequestProperty("X-Naver-Client-Id", "HJPMJZOK2mSYg8Kt_Jjj");
-    conn.setRequestProperty("X-Naver-Client-Secret", "6pe2vK6231");
+    conn.setRequestProperty("X-Naver-Client-Id", "HJPMJZOK2mSYg8Kt_Jjj"); // 아이디 묶기
+    conn.setRequestProperty("X-Naver-Client-Secret", "6pe2vK6231"); // 비번 묶기
     
     // 접속
-    conn.connect();
+    conn.connect(); //만든 conn으로 접속.
 
     // 응답 코드 확인(HTTP status)
-    if(conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+    if(conn.getResponseCode() != HttpURLConnection.HTTP_OK) { // 즉 코드가 200 나오지 않는 다면!!
       throw new RuntimeException("접속 실패");
     }
     
     // 문자 입력 스트림 생성
-    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream())); //버퍼 리더로 만들어!!
     
     // 응답 결과 (json) 받기
-    StringBuilder builder = new StringBuilder();
-    String line = null;
-    while((line = in.readLine()) != null) {
-      builder.append(line + "\n");
+    StringBuilder builder = new StringBuilder(); //스트링빌더 만들어
+    String line = null; // 라인 선언.
+    while((line = in.readLine()) != null) { // 라인이 읽어 오는게 없을 때 까지 와일문 돌려
+      builder.append(line + "\n"); //라인이 읽어온거 줄 바꿔 가며 더 해줘.
     }
     
     // 스트림 닫기
@@ -102,21 +102,22 @@ public class NaverSearchApiEx {
      *   obj.getJSONArray("hobbies").getString(0) == "game"
      *   obj.getJSONArray("hobbies").getString(1) == "travel"
      */
-    
-    File dir = new File("/storage/" + query + "-" + new SimpleDateFormat("yyyyMMddHHMMss").format(new Date()));
-    if(!dir.exists()) {
-      dir.mkdirs();
+
+    //스토리지 아래에 검색어와 검색 날짜 들어간 폴더 만들어
+    File dir = new File("/storage/" + query + "-" + new SimpleDateFormat("yyyyMMddHHMMss").format(new Date())); 
+    if(!dir.exists()) { //이런 디렉토리 없음 
+      dir.mkdirs(); //디렉토리 만들어.
     }
 
-    List<Book> books = new ArrayList<Book>();
+    List<Book> books = new ArrayList<Book>(); // List<> 써서 ArrayList<>를 만든다.
     
-    JSONObject obj = new JSONObject(result);
-    JSONArray items = obj.getJSONArray("items");
+    JSONObject obj = new JSONObject(result); //응답 결과 가지고 JSONObject obj만들어.(응답결과가 객체야.)
+    JSONArray items = obj.getJSONArray("items"); // 객체안에 배열 끄집어 내기.
     
     for(int i = 0, length = items.length(); i < length; i++) {
       
-      JSONObject item = items.getJSONObject(i);
-      String title = item.getString("title");
+      JSONObject item = items.getJSONObject(i); // 배열 번호의 itme 끌어내.
+      String title = item.getString("title"); // 배열안에 또 내용물은 객체들이니 스트링으로 받아
       String link = item.getString("link");
       String image = item.getString("image");
       String author = item.getString("author");
@@ -125,16 +126,16 @@ public class NaverSearchApiEx {
       String isbn = item.getString("isbn");
       String description = item.getString("description");
       
-      Book book = new Book(title, link, image, author, discount, publisher, isbn, description);
-      books.add(book);
+      Book book = new Book(title, link, image, author, discount, publisher, isbn, description); //북 만들어.
+      books.add(book);  // 북묶음 만들어.
       
-      File file = new File(dir, isbn + ".jpg");
-      download(file, image);
+      File file = new File(dir, isbn + ".jpg"); //파일 만들어서 이미지 저장.
+      download(file, image); //젤 아래에 메소드 있어.
       
     }
     
-    for(Book book : books) {
-      System.out.println("title : " + book.getTitle());
+    for(Book book : books) { //북묶음 분리할 향상 포문
+      System.out.println("title : " + book.getTitle()); // 북에 대한거 정보 빼와서 화면에 출력.
       System.out.println("link : " + book.getLink());
       System.out.println("image : " + book.getImage());
       System.out.println("author : " + book.getAuthor());
